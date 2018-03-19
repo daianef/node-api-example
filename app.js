@@ -2,6 +2,12 @@
  * Este é um exemplo muito, muito simples de API REST em Node.js.
  * O objetivo é ilustrar os principais elementos de uma API REST
  * e viabilizar um treinamento introdutório de testes.
+ *
+ * O CRUD desta aplicação é feita em memória. Ela simplesmente
+ * mantém uma lista de palavras.
+ *
+ * @daianef - 24/03/2018
+ *
  */
 
 'use strict';
@@ -11,6 +17,7 @@ var express = require('express');
 var app = express();
 
 var bodyParser = require('body-parser');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -29,7 +36,7 @@ app.get('/total', (req, res) => {
   res.json(stored.length);
 });
 
-app.get('/element/:id', (req, res) => {
+app.get('/word/:id', (req, res) => {
   var id = req.params.id - 1;
   var response = {};
 
@@ -38,12 +45,12 @@ app.get('/element/:id', (req, res) => {
     res.status(500).json(response);
   }
   else {
-    response[id] = stored[id];
+    response[id+1] = stored[id];
     res.json(response);
   }
 });
 
-app.get('/elements', (req, res) => {
+app.get('/words', (req, res) => {
   var response = {};
   var i;
 
@@ -57,7 +64,7 @@ app.get('/elements', (req, res) => {
 
 // POST :: Criar
 
-app.post('/elements', function (req, res) {
+app.post('/words', function (req, res) {
   var name = req.body.name;
   stored.push(name);
 
@@ -67,7 +74,7 @@ app.post('/elements', function (req, res) {
 
 // PUT :: Atualizar
 
-app.put('/elements/:id', function (req, res) {
+app.put('/words/:id', function (req, res) {
   var newname = req.body.newname;
   var id = req.params.id - 1;
 
@@ -84,7 +91,7 @@ app.put('/elements/:id', function (req, res) {
 
 // DELETE :: Excluir
 
-app.delete('/elements/:id', function (req, res) {
+app.delete('/words/:id', function (req, res) {
   var id = req.params.id-1;
 
   if (id < 0 || id >= stored.length) {
