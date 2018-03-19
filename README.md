@@ -23,13 +23,14 @@ Algumas características:
 Abstração da arquitetura da Web. Em outras palavras, é um modelo ou estilo de arquitetura, consistindo em um conjunto de padrões que, se utilizados, facilitam a comunicação entre sistemas na web.
 
 REST prevê que:
-* Cliente e servidor se comunicam, mas suas implementações são independentes.
-* Requests são feitas a partir do cliente para o servidor.
-* A conexão é feita através do protocolo HTTP.
-* Uso de HTTP Requests através de verbos HTTP (GET, POST, PUT, DELETE), URLs, métodos, paths...
+* Existe um lado cliente e um lado servidor que se comunicam, mas suas implementações são independentes. Por isso, a API pode ser em Node.js e os testes em Ruby :).
+* As requests sempre são feitas a partir do cliente para o servidor.
+* A conexão entre ambos os lados é feita através do protocolo HTTP.
+* São usadas HTTP Requests através de verbos HTTP (GET, POST, PUT, DELETE), URLs, métodos, paths...
+* Fique atenta, ao utilizar o protocolo HTTP devemos observar suas características ([saiba mais](https://tools.ietf.org/html/rfc2616)).
 
 
-### Verbos
+### Principais verbos HTTP
 
 * GET: Consultar/obter/ler dados
 * POST: Criar/registrar
