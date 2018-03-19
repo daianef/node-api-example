@@ -16,6 +16,7 @@
     "url": "https://github.com/daianef/node-api-example/issues"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.1"
   }
 }
