@@ -65,8 +65,8 @@ app.get('/words', (req, res) => {
 // POST :: Criar
 
 app.post('/words', function (req, res) {
-  var name = req.body.name;
-  stored.push(name);
+  var word = req.body.word;
+  stored.push(word);
 
   res.json('OK');
 });
@@ -95,7 +95,7 @@ app.delete('/words/:id', function (req, res) {
   var id = req.params.id-1;
 
   if (id < 0 || id >= stored.length) {
-    response['error'] = 'Could not update. Element does not exist.';
+    response['error'] = 'Could not delete. Element does not exist.';
     res.status(500).json(response);
   }
   else {

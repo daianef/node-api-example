@@ -54,6 +54,98 @@ As rotas disponíveis são:
 * `PUT - /words/:id`: altera uma palavra específica.
 * `DELETE - /words/:id`: exclui uma palavra.
 
+
+### Formato de respostas
+
+`GET - /total` deve retornar um número:
+
+```
+5
+```
+
+---
+
+
+`GET - /word/:id` deve retornar um hashmap com ID e palavra:
+
+```
+{
+  "1": "teste"
+}
+```
+
+Ou erro se o elemento não existir:
+```
+{
+  "error": "Element does not exist."
+}
+```
+
+---
+
+
+`GET - /words` deve retornar um hashmap com todas as palavras e seus IDs:
+
+```
+{
+  "1": "teste",
+  "2": "teste_2",
+}
+```
+
+---
+
+
+`POST - /words` deve retornar um "OK" se conseguiu salvar:
+
+```
+"OK"
+```
+
+---
+
+
+`PUT - /words/:id` deve retornar um "OK" se conseguiu alterar:
+
+```
+"OK"
+```
+
+Ou erro se o elemento não existir:
+```
+{
+  "error": "Could not update. Element does not exist."
+}
+```
+
+---
+
+
+`DELETE - /words/:id` deve retornar um "OK" se conseguiu excluir:
+
+```
+"OK"
+```
+
+Ou erro se o elemento não existir:
+```
+{
+  "error": "Could not delete. Element does not exist."
+}
+```
+
+
+### Formato de POST requests
+
+`POST - /words`
+
+```
+{
+  "word": "teste"
+}
+```
+
+
 ## Deploy local (Linux)
 
 Primeiro, faça o clone deste repositório. Em seguida, entre na pasta.
