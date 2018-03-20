@@ -38,6 +38,22 @@ REST prevê que:
 * DELETE: Excluir
 
 
+### O que esta API faz?
+
+Esta API é muito simples, não usa banco de dados, mantendo seus dados em memória.
+A ideia é um simples armazenador de palavras. A API lista palavras, salva novas
+palavras, apaga uma palavra, exibe uma palavra e altera uma palavra.
+
+As rotas disponíveis são:
+
+* `GET - /`: retorna uma string indicando que a API está online.
+* `GET - /total`: retorna o número total de palavras armazenadas.
+* `GET - /word/:id`: retorna uma palavra específica.
+* `GET - /words`: retorna todas as palavras armazenadas.
+* `POST - /words`: armazena uma nova palavra.
+* `PUT - /words/:id`: altera uma palavra específica.
+* `DELETE - /words/:id`: exclui uma palavra.
+
 ## Deploy local (Linux)
 
 Primeiro, faça o clone deste repositório. Em seguida, entre na pasta.
